@@ -1,11 +1,17 @@
 package com.ndli.smartsbourg.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.google.android.maps.GeoPoint;
 
-public class Item {
+public class Item implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	int id;
 	String title;
