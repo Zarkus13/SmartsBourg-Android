@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/map_fragment"
-        android:name=""
+        android:name="com.ndli.smartsbourg.fragments.SmBgMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
