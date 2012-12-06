@@ -3,6 +3,8 @@ package com.ndli.smartsbourg.models;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.google.android.maps.GeoPoint;
+
 public class Item {
 
 	int id;
@@ -12,8 +14,9 @@ public class Item {
 	int parentId;
 	String date;
 	int authorId;
+	GeoPoint coordinates;
 
-	public Item(int id, String title, String content, ArrayList<Integer> tagIds, int parentId, String date, int authorId) {
+	public Item(int id, String title, String content, ArrayList<Integer> tagIds, int parentId, String date, int authorId, GeoPoint coordinates) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -22,6 +25,7 @@ public class Item {
 		this.parentId = parentId;
 		this.date = date;
 		this.authorId = authorId;
+		this.coordinates = coordinates;
 	}
 
 	public static Item fromGenericMap(HashMap<String, Object> map) {
@@ -36,7 +40,11 @@ public class Item {
 		for (int i = 0; i < tagsMap.length; i++) {
 			tagIds.add((Integer) tagsMap[i]);
 		}
-		return new Item(id, title, content, tagIds, parentId, date, authorId);
+
+		GeoPoint coors = null;
+		Object[] coorsMap = (Object[]) map.get("coordinates");
+		coors = new GeoPoint((Integer) coorsMap[0], (Integer) coorsMap[1]);
+		return new Item(id, title, content, tagIds, parentId, date, authorId, coors);
 	}
 
 	public int getId() {
