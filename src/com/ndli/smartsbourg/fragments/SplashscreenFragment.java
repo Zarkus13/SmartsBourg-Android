@@ -1,19 +1,13 @@
 package com.ndli.smartsbourg.fragments;
 
-import java.util.ArrayList;
-
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.ndli.smartsbourg.R;
-import com.ndli.smartsbourg.activities.SmBgMapActivity;
-import com.ndli.smartsbourg.models.Item;
 import com.ndli.smartsbourg.tasks.PlacesDownloadTask;
-import com.ndli.smartsbourg.utils.DataProvider;
 
 public class SplashscreenFragment extends Fragment {
 

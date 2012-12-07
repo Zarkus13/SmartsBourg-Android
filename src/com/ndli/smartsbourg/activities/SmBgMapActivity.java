@@ -1,9 +1,9 @@
 package com.ndli.smartsbourg.activities;
 
-import com.ndli.smartsbourg.R;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.ndli.smartsbourg.R;
 
 public class SmBgMapActivity extends Activity {
 

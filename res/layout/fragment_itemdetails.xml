@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#F6F6F6" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,14 +18,21 @@
             <ImageView
                 android:id="@+id/itemdetails_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:contentDescription="@string/app_name"
                 android:src="@android:drawable/gallery_thumb" />
 
             <TextView
                 android:id="@+id/itemdetails_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#707070"
+                android:textSize="30dp" />
         </RelativeLayout>
 
         <LinearLayout
@@ -38,7 +46,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:text="@string/details"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@android:color/holo_blue_dark" />
 
             <ImageView
                 android:layout_width="2dp"
@@ -54,21 +62,30 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/medias"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@android:color/holo_blue_dark" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/itemdetails_txt_content"
-            style="@android:style/Widget.Holo.TextView"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible" />
+            android:padding="20dp"
+            android:layout_marginBottom="50dp">
+	        <TextView
+	            android:id="@+id/itemdetails_txt_content"
+	            style="@android:style/Widget.Holo.TextView"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:visibility="visible" />
+        </ScrollView>
 
-        <Gallery
+        <GridView
             android:id="@+id/itemdetails_media"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:numColumns="auto_fit"
+            android:gravity="center"
+             />
     </LinearLayout>
 
     <Button
@@ -78,6 +95,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="@string/events"
-        android:textColor="@android:color/darker_gray" />
+        android:textColor="@android:color/holo_blue_dark" />
 
 </RelativeLayout>

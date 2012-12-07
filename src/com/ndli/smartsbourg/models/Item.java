@@ -37,7 +37,7 @@ public class Item implements Serializable {
 
 	public static Item fromGenericMap(HashMap<String, Object> map) {
 		int id = (Integer) map.get("id");
-		String title = (String) map.get("title");
+		String title = (String) map.get("name");
 		String content = (String) map.get("content");
 		String date = (String) map.get("date");
 		double lat = 0;

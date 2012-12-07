@@ -14,12 +14,22 @@
 
     <LinearLayout
         android:id="@+id/item_details_fragment"
-        android:layout_width="400dp"
+        android:layout_width="250dp"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_margin="20dp"
         android:layout_marginLeft="20dp"
         tools:layout="@layout/fragment_itemdetails" />
+    
+    <LinearLayout
+        android:id="@+id/item_events_container"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        tools:layout="@layout/fragment_itemevents" />
 
 </RelativeLayout>
