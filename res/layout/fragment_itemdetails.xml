@@ -1,67 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <ImageView
-            android:id="@+id/itemdetails_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:src="@android:drawable/gallery_thumb" />
-
-        <TextView
-            android:id="@+id/itemdetails_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/itemdetails_btn_details"
-            style="@android:style/Widget.Holo.Button.Borderless"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:text="@string/details"
-            android:textColor="@android:color/darker_gray" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-        <ImageView
-            android:layout_width="2dp"
+            <ImageView
+                android:id="@+id/itemdetails_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@android:drawable/gallery_thumb" />
+
+            <TextView
+                android:id="@+id/itemdetails_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/itemdetails_btn_details"
+                style="@android:style/Widget.Holo.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/details"
+                android:textColor="@android:color/darker_gray" />
+
+            <ImageView
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/divider_horizontal_textfield" />
+
+            <Button
+                android:id="@+id/itemdetails_btn_medias"
+                style="@android:style/Widget.Holo.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/medias"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/itemdetails_txt_content"
+            style="@android:style/Widget.Holo.TextView"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitXY"
-            android:src="@android:drawable/divider_horizontal_textfield" />
+            android:visibility="visible" />
 
-        <Button
-            android:id="@+id/itemdetails_btn_medias"
-            style="@android:style/Widget.Holo.Button.Borderless"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/medias"
-            android:textColor="@android:color/darker_gray" />
+        <Gallery
+            android:id="@+id/itemdetails_media"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/itemdetails_txt_content"
-        style="@android:style/Widget.Holo.TextView"
+    <Button
+        android:id="@+id/itemdetails_btn_events"
+        style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/events"
+        android:textColor="@android:color/darker_gray" />
 
-    <Gallery
-        android:id="@+id/itemdetails_media"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
-
-</LinearLayout>
+</RelativeLayout>
