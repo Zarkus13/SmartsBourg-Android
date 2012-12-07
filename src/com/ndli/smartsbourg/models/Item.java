@@ -20,6 +20,7 @@ public class Item implements Serializable {
 	int authorId;
 	double lat;
 	double lon;
+	ArrayList<Media> medias;
 
 	public Item(int id, String title, String content, ArrayList<Integer> tagIds, int parentId, String date, int authorId, double lat, double lon) {
 		super();
@@ -39,18 +40,28 @@ public class Item implements Serializable {
 		String title = (String) map.get("title");
 		String content = (String) map.get("content");
 		String date = (String) map.get("date");
-		int parentId = (Integer) map.get("parent_id");
-		int authorId = (Integer) map.get("author_id");
-		ArrayList<Integer> tagIds = new ArrayList<Integer>();
-		Object[] tagsMap = (Object[]) map.get("tags");
-		for (int i = 0; i < tagsMap.length; i++) {
-			tagIds.add((Integer) tagsMap[i]);
+		double lat = 0;
+		double lon = 0;
+		try {
+			lat = Double.valueOf((String) map.get("latitude"));
+			lon = Double.valueOf((String) map.get("longitude"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		Item i = new Item(id, title, content, null, 0, date, 0, lat, lon);
+		if (map.containsKey("media")) {
+			ArrayList<Media> medias = new ArrayList<Media>();
+			Object[] media = (Object[]) map.get("media");
+			for (Object obj : media) {
+				@SuppressWarnings("unchecked")
+				HashMap<String, Object> o = (HashMap<String, Object>) obj;
+				Media m = Media.fromGenericMap(o);
+				medias.add(m);
+			}
+			i.setMedias(medias);
 		}
 
-		double lat = (Double) map.get("latitude"); 
-		double lon = (Double) map.get("longitude"); 
-		
-		return new Item(id, title, content, tagIds, parentId, date, authorId, lat, lon);
+		return i;
 	}
 
 	public int getId() {
@@ -107,6 +118,14 @@ public class Item implements Serializable {
 
 	public void setTagIds(ArrayList<Integer> tagIds) {
 		this.tagIds = tagIds;
+	}
+
+	public ArrayList<Media> getMedias() {
+		return medias;
+	}
+
+	public void setMedias(ArrayList<Media> medias) {
+		this.medias = medias;
 	}
 
 }
