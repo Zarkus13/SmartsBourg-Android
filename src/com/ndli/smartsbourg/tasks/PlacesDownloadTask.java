@@ -34,7 +34,7 @@ public class PlacesDownloadTask extends AsyncTask<String, Void, Void> {
 		}
 		HashMap<String, Object> map = JSONParser.parse(str);
 		
-		
+		Object[] items = (Object[]) map.get("items");
 		
 
 		return null;
