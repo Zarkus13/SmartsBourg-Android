@@ -18,7 +18,7 @@ public class EventsFragment extends Fragment {
 	public static EventsFragment newInstance() {
 		return new EventsFragment();
 	}
-
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_events, null);
