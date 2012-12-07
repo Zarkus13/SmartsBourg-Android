@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.google.android.maps.GeoPoint;
-
 public class Item implements Serializable {
 
 	/**
@@ -20,9 +18,10 @@ public class Item implements Serializable {
 	int parentId;
 	String date;
 	int authorId;
-	GeoPoint coordinates;
+	double lat;
+	double lon;
 
-	public Item(int id, String title, String content, ArrayList<Integer> tagIds, int parentId, String date, int authorId, GeoPoint coordinates) {
+	public Item(int id, String title, String content, ArrayList<Integer> tagIds, int parentId, String date, int authorId, double lat, double lon) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -31,7 +30,8 @@ public class Item implements Serializable {
 		this.parentId = parentId;
 		this.date = date;
 		this.authorId = authorId;
-		this.coordinates = coordinates;
+		this.lat = lat;
+		this.lon = lon;
 	}
 
 	public static Item fromGenericMap(HashMap<String, Object> map) {
@@ -47,10 +47,10 @@ public class Item implements Serializable {
 			tagIds.add((Integer) tagsMap[i]);
 		}
 
-		GeoPoint coors = null;
-		Object[] coorsMap = (Object[]) map.get("coordinates");
-		coors = new GeoPoint((Integer) coorsMap[0], (Integer) coorsMap[1]);
-		return new Item(id, title, content, tagIds, parentId, date, authorId, coors);
+		double lat = (Double) map.get("latitude"); 
+		double lon = (Double) map.get("longitude"); 
+		
+		return new Item(id, title, content, tagIds, parentId, date, authorId, lat, lon);
 	}
 
 	public int getId() {
@@ -107,6 +107,22 @@ public class Item implements Serializable {
 
 	public void setTagIds(ArrayList<Integer> tagIds) {
 		this.tagIds = tagIds;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLon() {
+		return lon;
+	}
+
+	public void setLon(double lon) {
+		this.lon = lon;
 	}
 
 }
