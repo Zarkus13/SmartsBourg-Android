@@ -2,6 +2,7 @@
 
     <string name="app_name">SmartsBourg</string>
     <string name="details">DETAILS</string>
-    <string name="medias">MEDIAS</string>
+    <string name="medias">MEDIA</string>
+    <string name="events">EVENEMENTS LIES</string>
 
 </resources>

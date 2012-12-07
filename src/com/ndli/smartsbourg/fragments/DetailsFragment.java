@@ -30,12 +30,19 @@ public class DetailsFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		Item item = (Item) getArguments().getSerializable("item");
+
 		mRoot = inflater.inflate(R.layout.fragment_itemdetails, null);
 		Button btnDetails = (Button) mRoot.findViewById(R.id.itemdetails_btn_details);
 		Button btnMedias = (Button) mRoot.findViewById(R.id.itemdetails_btn_medias);
 
 		gallery = (Gallery) mRoot.findViewById(R.id.itemdetails_media);
 		text = (TextView) mRoot.findViewById(R.id.itemdetails_txt_content);
+		
+		TextView titleView = (TextView) mRoot.findViewById(R.id.itemdetails_title);
+
+		text.setText(item.getContent());
+		titleView.setText(item.getTitle());
 
 		btnDetails.setOnClickListener(new OnClickListener() {
 
