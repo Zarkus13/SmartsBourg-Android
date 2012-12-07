@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.ndli.smartsbourg.listeners.OnMapItemClickListener;
 import com.ndli.smartsbourg.models.Item;
 import com.ndli.smartsbourg.utils.DataProvider;
 
@@ -36,10 +38,7 @@ public class SmBgMapFragment extends MapFragment {
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 		
-		markersItems = new HashMap<Marker, Item>();
-		
-		getMap().setMyLocationEnabled(true);
-		
+		markersItems = new HashMap<Marker, Item>();		
 		
 		for(Item item : DataProvider.places) {
 			MarkerOptions marker = new MarkerOptions()
@@ -53,7 +52,9 @@ public class SmBgMapFragment extends MapFragment {
 		LatLng pos = new LatLng(48.58308, 7.747997);
 		CameraUpdate update = CameraUpdateFactory.newLatLngZoom(pos, 16);
 		
-		getMap().moveCamera(update);
+		getMap().moveCamera(update);		
+		getMap().setMyLocationEnabled(true);
+		getMap().setOnInfoWindowClickListener(new OnMapItemClickListener(this));
 	}
 
 	public Map<Marker, Item> getMarkersItems() {

@@ -31,18 +31,8 @@ public class SplashscreenFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_splashscreen, null);
 
-		PlacesDownloadTask task = new PlacesDownloadTask();
-		task.execute("http://nuit-info-2012.herokuapp.com/items.json");
-		
-		ArrayList<Item> places = new ArrayList<Item>();
-		places.add(new Item(0, "lolilol", "content lolilol", null, 1, null, 0, 48.582058, 7.745864));
-		places.add(new Item(1, "pouet", "content pouet", null, 1, null, 0, 48.587055, 7.753938));
-		places.add(new Item(2, "lalala", "content lalala", null, 1, null, 0, 48.586516, 7.741922));
-		
-		DataProvider.places = places;
-
-		Intent intent = new Intent(getActivity(), SmBgMapActivity.class);
-		startActivity(intent);
+		PlacesDownloadTask task = new PlacesDownloadTask(getActivity());
+		task.execute("http://nuit-info-2012.herokuapp.com/items.json?tag_name=Monuments");
 
 		return v;
 	}

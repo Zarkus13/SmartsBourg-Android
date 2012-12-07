@@ -9,11 +9,15 @@ import android.os.Bundle;
 
 public class SplashscreenActivity extends Activity {
 
+	public static boolean isTablet = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_splashscreen);
+
+		isTablet = findViewById(R.id.tablet) != null;
 
 		FragmentTransaction ft = getFragmentManager().beginTransaction();
 		ft.replace(R.id.container, SplashscreenFragment.newInstance());

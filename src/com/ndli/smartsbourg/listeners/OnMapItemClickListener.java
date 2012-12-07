@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.model.Marker;
 import com.ndli.smartsbourg.R;
+import com.ndli.smartsbourg.activities.SplashscreenActivity;
 import com.ndli.smartsbourg.fragments.DetailsFragment;
 import com.ndli.smartsbourg.fragments.SmBgMapFragment;
 import com.ndli.smartsbourg.models.Item;
@@ -22,7 +23,7 @@ public class OnMapItemClickListener implements OnInfoWindowClickListener {
 	public void onInfoWindowClick(Marker marker) {
 		Item item = smBgMapFragment.getMarkersItems().get(marker);
 		
-		if(LEBOOLEANILESTTROUE) {
+		if(SplashscreenActivity.isTablet) {
 			Fragment frag = DetailsFragment.newInstance(item);
 			FragmentTransaction trans = smBgMapFragment.getActivity().getFragmentManager().beginTransaction();
 			
